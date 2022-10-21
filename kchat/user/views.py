@@ -13,6 +13,10 @@ class UserListCreateAPIView(APIView):
     
     def delete(self, request, pk):
         pass
-    
+
+class UserCreateAPIView(APIView):
+    def post(self, request):
+        pass
+
 class UserDetailAPIView(APIView):
     pass

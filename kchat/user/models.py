@@ -8,7 +8,7 @@ class UserPrivate(models.Model):
     password = models.CharField(max_length=200)
     uuid = models.UUIDField(default=uuid.uuid4)
     email = models.EmailField()
-    created_at = models.DateTimeField(add_now_auto=True)
+    created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
     def __str__(self) -> str:
@@ -19,7 +19,7 @@ class User(models.Model):
     # primary key id is default
     nickname = models.CharField(max_length=40)
     uuid = models.ForeignKey(UserPrivate, on_delete=models.CASCADE)
-    profile_img_url = models.CharField(max_lenght=400)
+    profile_img_url = models.CharField(max_length=400)
     profile_message = models.CharField(max_length=400)
     last_login = models.DateTimeField(auto_now=True)
     
