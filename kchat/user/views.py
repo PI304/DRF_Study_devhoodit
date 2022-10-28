@@ -2,7 +2,7 @@ from rest_framework.views import APIView
 from rest_framework import status
 from rest_framework.generics import get_object_or_404
 from rest_framework.response import Response
-from .serializers import UserSerializer
+from .serializers import UserProfileSerializer
 from .models import User, UserProfile
 from django.http import Http404
 
@@ -12,7 +12,7 @@ class User(APIView):
             raise Http404
 
         user_instance = get_object_or_404(UserProfile, uuid=user_uuid)
-        user_serializer = UserSerializer(user_instance)
+        user_serializer = UserProfileSerializer(user_instance)
 
         return Response(user_serializer.data)
 
@@ -21,7 +21,7 @@ class User(APIView):
             raise Http404
 
         user_instacne = get_object_or_404(UserProfile, uuid=user_uuid)
-        user_serializer = UserSerializer(user_instacne)
+        user_serializer = UserProfileSerializer(user_instacne)
 
         return Response(user_serializer)
 
